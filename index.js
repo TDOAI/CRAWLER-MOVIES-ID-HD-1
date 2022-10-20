@@ -85,10 +85,10 @@ async function chunkify(a, n, balanced) {
 
 async function pagination_chunk(chunks, n) {
     const chunk = chunks[n];
-    // const sliced = chunk.slice(0, 1);
+    const sliced = chunk.slice(0, 1);
     console.log("DONE");
     console.log("PROCESSING CARDS LINK....");
-    return chunk;
+    return sliced;
 };
 
 async function cards_link(paginationArray) {
@@ -118,6 +118,7 @@ async function cards_link(paginationArray) {
 
 async function id(cardsArray) {
     try {
+        const timer = ms => new Promise(res => setTimeout(res, ms))
         const cards = [];
         for(i = 0; i < cardsArray.length; i++) {
             const config = await headers();
@@ -132,6 +133,7 @@ async function id(cardsArray) {
             const stream_id = url.substring(url.lastIndexOf('/') + 1);
             const card = { tmdb_id, stream_id };
             cards.push(card);
+            await timer(500);
             // console.log(card);
         }
         console.log("SCRAPING COMPLETED");
