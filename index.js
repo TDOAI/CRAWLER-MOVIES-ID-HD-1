@@ -85,10 +85,10 @@ async function chunkify(a, n, balanced) {
 
 async function pagination_chunk(chunks, n) {
     const chunk = chunks[n];
-    const sliced = chunk.slice(0, 1);
+    // const sliced = chunk.slice(0, 1);
     console.log("DONE");
     console.log("PROCESSING CARDS LINK....");
-    return sliced;
+    return chunk;
 };
 
 async function cards_link(paginationArray) {
