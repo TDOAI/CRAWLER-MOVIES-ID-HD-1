@@ -9,7 +9,6 @@ const config_0 = {
         'accept-language': 'en-US,en;q=0.9',
         'cache-control': 'no-cache',
         'pragma': 'no-cache',
-        'referer': '',
         'sec-ch-ua': '"Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"',
         'sec-ch-ua-mobile': '?0',
         'sec-fetch-dest': 'document',
