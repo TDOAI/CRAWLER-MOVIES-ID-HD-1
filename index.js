@@ -110,8 +110,7 @@ async function cards_link(paginationArray) {
             $(".flw-item").map( (i, element) => {
                 const film = $(element).find(".film-poster");
                 const id = $(film).find("a").attr("href");
-                const link =`${domain}` + `${id}`;
-                pages.push(link);
+                pages.push(id);
                 }).get();
         }
         console.log(pages.length+" "+"ID TO PROCESS");
