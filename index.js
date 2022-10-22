@@ -126,7 +126,7 @@ async function VerifyIfCardsinDB(cardsArray, n) {
     try {
         const cards = [];
         const clean = (cardsArray || []).map(async card => {
-            const cardsFromDb = await Tvshow.findOne({ stream_id: card.substring(n) });
+            const cardsFromDb = await Movie.findOne({ stream_id: card.substring(n) });
             if (!cardsFromDb) {
                 const link = `${domain}` + `${card}`;
                 cards.push(link)
