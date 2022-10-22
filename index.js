@@ -4,6 +4,7 @@ const cheerio = require("cheerio");
 const mongoose = require('mongoose');
 const randomUseragent = require('random-useragent');
 const Movie = require("./model/movies");
+const Manual_Entry = require('./model/manual_entries');
 const _headers = require ('./_headers');
 
 const authority = process.env.AUTHORITY;
