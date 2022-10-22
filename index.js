@@ -223,7 +223,7 @@ async function main() {
         console.log(time);
         const pagination = await paginationArr();
         const chunks = await chunkify(pagination, 5, true);//(pagination, NumberofArray, balanced)
-        const paginationArray = await pagination_chunk(chunks, 0);//CHUNK NUMBER 0 = 1
+        const paginationArray = await pagination_chunk(chunks, 0);//CHUNK NUMBER 0 = ARRAY 1
         const cardsArray = await cards_link(paginationArray);
         const verifiedCards = await VerifyIfCardsinDB(cardsArray, 7);//IF MOVIE=>(CardsArray, 7) IF TV=>(CardsArray, 4)
         const ids_full = await id(verifiedCards);
