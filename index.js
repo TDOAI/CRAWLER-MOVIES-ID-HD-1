@@ -196,11 +196,12 @@ async function insertCardsInMongoDb(ids_full) {
     }
 };
 
-async function insertLinkWithError() {
+async function insertLinkWithError(n) {
     try {
         const cards = [];
         const promises = (backup || []).map(async card => {
-        const cardsFromDb = await Manual_Entry.findOne({ Link: card.Link });
+        const cardsFromDbManual = await Manual_Entry.findOne({ Link: card.Link });
+        const cardsFromDb = await Movie.findOne({ stream_id: card.Link.substring(n) });
         if (!cardsFromDb) {
             const newCard = new Manual_Entry(card);
             cards.push(card);
@@ -228,7 +229,7 @@ async function main() {
         const verifiedCards = await VerifyIfCardsinDB(cardsArray, 7);//IF MOVIE=>(CardsArray, 7) IF TV=>(CardsArray, 4)
         const ids_full = await id(verifiedCards);
         await insertCardsInMongoDb(ids_full);
-        await insertLinkWithError();
+        await insertLinkWithError(7);//IF MOVIE=>n=(7) IF TV=>n=(4)
         mongoose.disconnect(function(){
             console.log("SUCCESSFULLY DISCONNECTED FROM MONGODB!");
         });
